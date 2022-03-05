@@ -4,12 +4,14 @@ include('Connection.php');
 $errors=array('email'=>'','TacosName'=>'','TacosSize'=>'');
 $sqlTacosSize = "SELECT * FROM tacossizes";
 if ($queryTacosSize = mysqli_query($cnx, $sqlTacosSize)) {
+  
   $tacosSizes = mysqli_fetch_all($queryTacosSize, MYSQLI_ASSOC);
+
 }
 
 if(isset($_POST['Submit'])){
   $email=$_POST['email'];
-  $TacosName=$_POST['TacosName'];
+  $TacosName=$_POST['TacosName'];  
   $TacosSize=$_POST['TacosSize'];
 
   $isTacosNameAlpha = (bool)preg_match('/[a-zA-Z\s]+$/',$TacosName);
